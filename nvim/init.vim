@@ -115,6 +115,10 @@ autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 runtime ./plug.vim
 if has("unix")
   let s:uname = system("uname -s")
+  " Do Linux stuff
+  if s:uname == "Linux\n"
+    runtime ./linux.vim
+  endif
   " Do Mac stuff
   if s:uname == "Darwin\n"
     runtime ./macos.vim
@@ -152,7 +156,3 @@ set exrc
 "}}}
 
 " vim: set foldmethod=marker foldlevel=0:
-
-let g:python3_host_prog = 'C:\miniforge3\envs\python\python.exe'
-" let g:python_host_prog = ''
-let g:node_host_prog = 'C:\Users\dataw\AppData\Roaming\nvm\v14.17.0\node.exe'
